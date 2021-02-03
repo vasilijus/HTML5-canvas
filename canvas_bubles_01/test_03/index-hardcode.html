@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas></canvas>
+
+    <script>
+        var canvas = document.querySelector('canvas');
+            canvas.height = window.innerHeight;
+            canvas.width = window.innerWidth;
+var c = canvas.getContext("2d");
+
+
+var x = Math.random() * innerWidth, 
+    y = Math.random() * innerHeight;
+
+var dx = (Math.random() - 0.5) * 8, dy = (Math.random() - 0.5) * 8;
+var radius = 30;
+
+function animate() {
+    requestAnimationFrame(animate);
+
+c.clearRect(0,0, innerWidth, innerHeight);
+c.beginPath();
+c.arc(x,y, radius,0,Math.PI * 2, false);
+c.strokeStyle = "rgb(22,22,244)";
+c.stroke();
+
+if( x + radius > innerWidth || x - radius < 0 ) { 
+    dx = -dx; 
+}
+if( y + radius > innerHeight || y - radius < 0) {
+    dy = -dy;
+}
+
+x += dx;
+y += dy;
+
+    console.log("aniamte");
+}
+
+console.log(canvas);
+
+animate();
+    </script>
+</body>
+</html>

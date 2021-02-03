@@ -1,0 +1,15 @@
+We discuss three tools:
+• Profilers
+• Timelines
+• jsPerf
+
+The clock application, which is listed in Example 1.4, uses the following drawing
+methods from the Canvas API:
+• arc()
+• beginPath()
+• clearRect()
+• fill()
+• fillText()
+• lineTo()
+• moveTo()
+• stroke()
