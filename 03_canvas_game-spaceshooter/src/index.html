@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Canvas Boilerplate | Chris Courses</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.3/tailwind.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <style>
+      body {
+        margin: 0; background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="fixed text-white ml-3 mt-3 select-none"><span>Score: </span><span id="scoreEl">0</span></div>
+
+    <div id="modelEl" class="fixed inset-0 flex items-center justify-center">
+      <div class="bg-white max-w-md w-full p-6 text-center">
+        <h1 id="bigScoreEl" class="text-4xl font-bold leading-none">0</h1>
+        <p class="text-sm text-gray-700 mb-4">Points</p>
+        <div>
+          <button id="startGameBtn" class="bg-blue-500 text-white text-sm p-2 w-full rounded-full">Start Game</button>
+        </div>
+      </div>
+    </div>
+    <canvas></canvas>
+  </body>
+</html>
