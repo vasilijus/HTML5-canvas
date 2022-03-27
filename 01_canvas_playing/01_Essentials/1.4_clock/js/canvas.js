@@ -7,7 +7,7 @@ const canvas = document.querySelector('canvas'),
       ch = canvas.height = innerHeight;
 
 const FONT_HEIGHT           = 15,
-      MARGIN                = 35,
+      MARGIN                = 50,
       HAND_TRUNCATION       = cw / 25,
       HOUR_HAND_TRUNCATION  = cw / 10,
       NUMERAL_SPACING       = 20,
@@ -34,7 +34,7 @@ function drawNumerals() {
         numeralWidth = 0;
 
     numerals.forEach((numeral, index) => {
-        angle = Math.PI/6 * (numeral - 3)
+        angle = Math.PI/6 * (numeral - 1)
         numeralWidth = c.measureText(numeral).width;
         // console.log(index, angle, numeralWidth)
         var x = cw/2 + Math.cos(angle) * (HAND_RADIUS) - numeralWidth/2
@@ -60,8 +60,8 @@ function drawHands() {
     hour = hour > 12 ? hour - 12 : hour;
 
     drawHand(hour*5 + (date.getMinutes()/60)*5, true, 0.5);
-drawHand(date.getMinutes(), false, 0.5);
-drawHand(date.getSeconds(), false, 0.2);
+    drawHand(date.getMinutes(), false, 0.5);
+    drawHand(date.getSeconds(), false, 0.2);
 }
 
 c.font = FONT_HEIGHT + 'px Arial';
