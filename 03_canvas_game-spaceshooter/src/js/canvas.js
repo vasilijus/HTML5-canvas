@@ -158,20 +158,33 @@ function spawnEnemies() {
 
 // console.log(player)
 
-window.addEventListener('click', (e) => {
-    // console.log (e)
-    const angle = Math.atan2(e.clientY - canvas.height/2, e.clientX - canvas.width/2 );
-    const speed = 4
-    const velocity = {
-      x: Math.cos(angle) * speed,
-      y: Math.sin(angle) * speed
-    }
+const speed = 4,
+      fireRate = .4
+let canShoot = true;
 
-    console.log(velocity)
-    projectiles.push( new Projectile(
-      canvas.width / 2,  canvas.height / 2,  4,  'white',  velocity
-    ))
+window.addEventListener('click', (e) => {
+  if (canShoot) {
+      const angle = Math.atan2(e.clientY - canvas.height/2, e.clientX - canvas.width/2 );
+
+      const velocity = {
+        x: Math.cos(angle) * speed,
+        y: Math.sin(angle) * speed
+      }
+
+      console.log(velocity)
+      projectiles.push( new Projectile(
+        canvas.width / 2,  canvas.height / 2,  4,  'white',  velocity
+      )) 
+      canShoot = false
+      console.log('shoot stop!!!')
+
+      setTimeout(() => {
+        canShoot = true;
+        console.log('can shoot')
+      }, 1000 * fireRate)
+  }
 })
+
 
 startGameBtn.addEventListener('click', function() {
   init();
